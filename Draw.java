@@ -35,10 +35,22 @@ public class Draw
     public int draw()
     {
         // put your code here
-        for (int num = 0; num < lotto.length; num++)
+        for (int n: lotto)
         {
-            int ball = int Math.random() * 40;
-            for i   
+            int ball = (int) Math.random() * 40;
+            int duplicate = 0;
+            for (int i : lotto)
+            {
+                if (ball != lotto[i])
+                {
+                    duplicate = 1;
+            
+            }
+        }
+        if (duplicate == 0);
+        {
+            lotto[n] = ball;
+        }   
         }
     }
 }
