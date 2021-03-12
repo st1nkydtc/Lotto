@@ -1,4 +1,4 @@
-import java.random;
+import java.util.Random;
 /**
  * Draws 8 unique numbers (lotto balls) and sticks them into an array
  * Numbers between 1 and 40
@@ -12,9 +12,11 @@ public class Draw
     private final int DRAWLENGTH = 8;
     private final int MAXDRAW = 40;
     private final int MINDRAW = 1;
+    private int ball;
+    private int duplicate = 1;
     
     // array
-    public int[] draw = new int[DRAWLENGTH]; 
+    public int[] lotto = new int[DRAWLENGTH]; 
     
 
     /**
@@ -27,30 +29,34 @@ public class Draw
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Draws the random numbers
      *
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public int draw()
+    public int[] draw()
     {
         // put your code here
-        for (int n: lotto)
+        for(int n = 0; n < DRAWLENGTH; n++) // beginning of for loop for the length of the draw
         {
-            int ball = (int) Math.random() * 40;
-            int duplicate = 0;
-            for (int i : lotto)
+            duplicate = 1;
+            while (duplicate == 1)
             {
-                if (ball != lotto[i])
+                ball = (int)(Math.random() * MAXDRAW) +1; // sets the balls number to somewhere between 0 and 40
+                duplicate = 0;
+                for (int i = 0; i < DRAWLENGTH; i++) // runs the length of array to check balls
                 {
-                    duplicate = 1;
-            
+                    if (ball == lotto[i])  // checks if ball is already in array
+                    {
+                        duplicate = 1;        
+                    }
+                    if (duplicate == 0); 
+                    {
+                        lotto[n] = ball;
+                    }   
+                }
             }
         }
-        if (duplicate == 0);
-        {
-            lotto[n] = ball;
-        }   
-        }
+        return(lotto);
     }
 }
