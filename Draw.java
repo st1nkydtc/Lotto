@@ -29,7 +29,8 @@ public class Draw
     }
 
     /**
-     * Draws the random numbers
+     * Draws the random numbers for each of the 8 balls
+     * checks if ball is already in array and if not adds ball to it
      *
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
@@ -48,13 +49,14 @@ public class Draw
                 {
                     if (ball == lotto[i])  // checks if ball is already in array
                     {
-                        duplicate = 1;        
+                     duplicate = 1;        
                     }
-                    if (duplicate == 0); 
-                    {
-                        lotto[n] = ball;
-                    }   
+ 
                 }
+                if (duplicate == 0); 
+                {
+                 lotto[n] = ball;
+                }  
             }
         }
         return(lotto);
